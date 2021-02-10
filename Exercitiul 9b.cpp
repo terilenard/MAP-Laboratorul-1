@@ -65,7 +65,8 @@ void afisare_matrice(double **matrice, int m, int n)
 
 void afisare_max(double **matrice, int m, int n)
 {
-    int max = 0, pozm, pozn;
+    double max;
+    int pozm, pozn;
     cout << "\n";
     for (int i = 0; i < m; i++)
     {
@@ -73,7 +74,7 @@ void afisare_max(double **matrice, int m, int n)
         {
             if (matrice[m][n] > max)
             {
-                max = matrice[m][n];
+                max = matrice[i][j];
                 pozm = m;
                 pozn = n;
             }
