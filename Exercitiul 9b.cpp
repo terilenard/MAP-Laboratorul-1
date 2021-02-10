@@ -3,17 +3,16 @@
 
 using namespace std;
 
-//void alocare_matrice(int **matrice, int m, int n);
-void dealocare_matrice(int **matrice, int m, int n);
-void citire_matrice(int **matrice, int m, int n);
-void afisare_matrice(int **matrice, int m, int n);
-void afisare_max(int **matrice, int m, int n);
+double ** alocare_matrice(int m, int n);
+void dealocare_matrice(double **matrice, int m, int n);
+void citire_matrice(double **matrice, int m, int n);
+void afisare_matrice(double **matrice, int m, int n);
+void afisare_max(double **matrice, int m, int n);
 
 int main()
 {
     srand(time(NULL));
 
-    int **matrice;
     int m, n;
 
     cout << "m = "; //linii
@@ -21,12 +20,7 @@ int main()
     cout << "n = "; //coloana
     cin >> n;
 
-    //alocare_matrice(matrice, m, n);
-    matrice = new int *[m];
-    for (int i = 0; i < n; i++)
-    {
-        matrice[i] = new int[n];
-    }
+    double **matrice = alocare_matrice(m, n);
     citire_matrice(matrice, m, n);
     afisare_matrice(matrice, m, n);
     afisare_max(matrice, m, n);
@@ -34,16 +28,19 @@ int main()
     system("pause");
 }
 
-/* void alocare_matrice(int **matrice, int m, int n)
+double ** alocare_matrice(int m, int n)
 {
-    matrice = new int*[m];
+    double **matrice;
+    matrice = new double*[m];
     for (int i = 0; i < n; i++)
     {
-        matrice[i] = new int[n];
+        matrice[i] = new double[n];
     }
-} */
 
-void citire_matrice(int **matrice, int m, int n)
+    return matrice;
+}
+
+void citire_matrice(double **matrice, int m, int n)
 {
     for (int i = 0; i < m; i++)
     {
@@ -54,7 +51,7 @@ void citire_matrice(int **matrice, int m, int n)
     }
 }
 
-void afisare_matrice(int **matrice, int m, int n)
+void afisare_matrice(double **matrice, int m, int n)
 {
     for (int i = 0; i < m; i++)
     {
@@ -66,7 +63,7 @@ void afisare_matrice(int **matrice, int m, int n)
     }
 }
 
-void afisare_max(int **matrice, int m, int n)
+void afisare_max(double **matrice, int m, int n)
 {
     int max = 0, pozm, pozn;
     cout << "\n";
@@ -85,7 +82,7 @@ void afisare_max(int **matrice, int m, int n)
     cout << "Maximul este: " << max << "[" << m << "][" << n << "]";
 }
 
-void dealocare_matrice(int **matrice, int m, int n)
+void dealocare_matrice(double **matrice, int m, int n)
 {
     for (int i = 0; i < n; i++)
     {
